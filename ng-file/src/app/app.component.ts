@@ -11,7 +11,6 @@ export class AppComponent {
   uploadedFiles: Array < File > ;
 
   constructor(private http: HttpClient) {
-
   }
 
   fileChange(element) {
@@ -19,10 +18,10 @@ export class AppComponent {
   }
 
   upload() {
-    let formData = new FormData();
+    const formData = new FormData();
     formData.append('file', this.uploadedFiles[0], this.uploadedFiles[0].name);
 
-    this.http.post('http://localhost:8080/', formData)
+    this.http.post('http://localhost:8080/', formData) //TODO TO ENV FILE
     .subscribe((response) => {
          console.log('response received is ', response);
     });
